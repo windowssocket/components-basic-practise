@@ -10,6 +10,7 @@ client = MongoClient("mongodb+srv://xidongc:chen19910531@cluster0-xhald.mongodb.
 db = client.blog
 blogs = db.blogs
 
+
 @app.route('/blogs', methods=['GET', 'POST'])
 def blog():
 
@@ -41,6 +42,7 @@ def blog():
         }
         return jsonify(response)
 
+
 @app.route('/blogs/<blog_id>', methods=['GET'])
 def single_blog(blog_id):
     result = blogs.find_one({'_id':ObjectId(blog_id)})
@@ -49,6 +51,7 @@ def single_blog(blog_id):
         'data': result
     }
     return jsonify(response)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
