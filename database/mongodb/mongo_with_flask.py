@@ -45,7 +45,7 @@ def blog():
 
 @app.route('/blogs/<blog_id>', methods=['GET'])
 def single_blog(blog_id):
-    result = blogs.find_one({'_id':ObjectId(blog_id)})
+    result = blogs.find_one({'_id': ObjectId(blog_id)})
     result['_id'] = str(result['_id'])
     response = {
         'data': result
